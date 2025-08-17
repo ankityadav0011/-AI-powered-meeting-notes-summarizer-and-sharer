@@ -19,7 +19,7 @@ function App() {
   const generateSummary = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3000/api/summary', { transcript, prompt });
+      const res = await axios.post('https://ai-powered-meeting-notes-summarizer-and-ik17.onrender.com/api/summary', { transcript, prompt });
       console.log("error happend")
       setSummary(res.data.summary);
       setEditedSummary(res.data.summary);
@@ -33,7 +33,7 @@ function App() {
   const handleEdit = (s) => setEditedSummary(s);
   const handleSendEmail = async (recipients) => {
     try {
-      await axios.post('http://localhost:3000/api/email', { recipients, summary: editedSummary });
+      await axios.post('https://ai-powered-meeting-notes-summarizer-and-ik17.onrender.com/api/email', { recipients, summary: editedSummary });
       alert('Email sent!');
     } catch (err) {
       alert('Failed to send email');
